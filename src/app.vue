@@ -1,34 +1,26 @@
-<style lang="stylus">
-font-stack = Helvetica, sans-serif
-primary-color = #999
-body
-  font 100% font-stack
-  color primary-color
-</style>
-
-<template lang="jade">
-div
-  h1 {{msg}}
-  comp-a
-  comp-b
-  counter
-</template>
-
 <script>
-import CompA from './components/a.vue'
-import CompB from './components/b.vue'
-import Counter from './components/counter.vue'
+import FormComponent from './components/form.vue'
 
 export default {
-  data () {
-    return {
-      msg: 'Hello from vue-loader!'
-    }
-  },
-  components: {
-    CompA,
-    CompB,
-    Counter
-  }
+  components: { FormComponent }
 }
 </script>
+
+<style src="./styles/style.scss" lang="sass"></style>
+
+<style>
+  .form-container {
+    background-color:#fff;
+    margin:70px auto;
+    padding:30px 70px;
+    width:600px;
+  }
+</style>
+
+<template>
+  <div class="form-container">
+    <form-component></form-component>
+  </div>
+</template>
+
+

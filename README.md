@@ -1,71 +1,16 @@
-# vue-loader example
+# Form UI 
 
-> Example using [vue-loader](https://github.com/vuejs/vue-loader) with [Webpack](http://webpack.github.io).
+##  Background
 
-## Setup
+Doing the HackerRank challenge was an interesting experience for me.  I didn't really know what to expect, and budgeting my time was more of a challenge than I thought it would be (Especially when it came to designing that form).  I felt like I fumbled around for a while trying to make sense of what I wanted to accomplish.  At the end of the day I kind of hacked together a basic form that didn't really have any functionality. 
 
-``` bash
-npm install
-npm run dev
-# go to http://localhost:8080/webpack-dev-server/
-```
+For the second portion of this interview, I wanted to add some more functionality to the form.  **Caveat - I still don't have a lot of context about how this form fits into the "rest of  (hypothetical) experience", and what the jobs that the user needs to accomplish are.  So the interactions demonstrated are a little bit contrived and may not actually represent "good UX".  
 
-#### ES2015 by Default
+On a final note, as part of my growth as a designer, I have been pushing myself to grow in my Javascript skills.  One framework I have enjoyed lately is Veu.js.  It has a number of similar ideas to React (data down - actions up, component based design, optimized for speed and performance ).  I chose it because as a designer, it is more comfortable to deal with HTML templates and have a little bit more separation between your HTML and JS. Vue's API is incredibly simple and is something that can really be learned in a weekend, and thus seemed like a nice fit for this project. 
 
-`vue-loader` automatically applies Babel transforms to the JavaScript inside `*.vue` components. Write ES2015 today!
+## Project Details
 
-The default Babel options used for Vue.js components are:
+1. Viewing the project
 
-``` js
-{
-  // use babel-runtime library for common helpers
-  optional: ['runtime'],
-  // use loose mode for faster builds
-  loose: 'all',
-  // disable non-standard stuff (e.g. JSX)
-  nonStandard: false
-}
-```
+2.  
 
-If you wish to mofidy this, you can add a `babel` field in your webpack config, which will be merged with the default options. For example:
-
-``` js
-// webpack.config.js
-module.exports = {
-  // other configs...
-  babel: {
-    // enable stage 0 transforms
-    stage: 0
-  }
-}
-```
-
-#### Using Per-file Pre-processors
-
-If you only want to use pre-processors in a specific file, you can add an inline `lang` attribute to a language block:
-
-``` html
-<style lang="stylus">
-  /* use stylus here */
-</style>
-```
-
-Note you will have to install `stylus-loader` so that Webpack can handle the compilation. The `lang` attribute will be used to automatically locate the loader to use, and you can pass Webpack loader queries in it as well:
-
-``` html
-<style lang="sass?outputStyle=expanded">
-  /* use sass here with expanded output */
-</style>
-```
-
-#### Scoped CSS
-
-> Experimental. Requires `vue-loader` ^4.0.0
-
-You can add the `scoped` attribute to a `<style>` block to make it scoped to the current component. A few things to take note:
-
-1. You can include both scoped and non-scoped styles in the same component.
-
-2. A child component's root node will be affected by both the parent's scoped CSS and the child's scoped CSS.
-
-3. Partials are not affected by scoped styles.
