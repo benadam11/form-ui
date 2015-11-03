@@ -33,7 +33,7 @@
   }
 </script>
 
-<style lang="sass" >
+<style lang="sass">
 
   input[type="text"]{
     -webkit-appearance:none;
@@ -113,7 +113,6 @@
         v-on:blur="validateInput($event)"
         type="{{type}}" 
         placeholder="{{placeholder}}"
-        disabled="{{disabled}}"
       />
     </div>
 

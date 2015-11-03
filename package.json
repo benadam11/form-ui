@@ -1,11 +1,12 @@
 {
-  "name": "Form-Example",
+  "name": "Axosoft-Form-UI",
   "version": "1.0.0",
   "description": "Settings Form Example for Axosoft",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --quiet",
-    "build": "NODE_ENV=production webpack --progress --hide-modules"
+    "build": "NODE_ENV=production webpack --progress --hide-modules",
+    "clean": "rm -rf /dist"
   },
   "dependencies": {
     "lodash": "^3.10.1",

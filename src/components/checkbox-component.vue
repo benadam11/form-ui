@@ -20,8 +20,26 @@
   }
 </script>
 
+<style scoped>
+
+  label { padding-left:8px; }
+
+  .checkbox-container { 
+    display: inline-block;
+    margin-right:10px;
+  }
+</style>
+
 <template>
-  <input type="checkbox" name="{{name}}" checked="{{isActive}}" v-on:change="sendUpdate()">
-  <label for="{{name}}" v-if="isActive">{{label}}</label>
-  <label for="{{name}}" v-else="isActive">{{alt}}</label>
+  <div class="checkbox-container">
+    <span v-if="isActive">
+      <input type="checkbox" name="{{name}}" v-on:change="sendUpdate()" v-model="isActive">
+      <label for="{{name}}" v-if="isActive">{{label}}</label>
+    </span>
+
+    <span v-else="isActive">
+      <input type="checkbox" name="{{name}}" v-on:change="sendUpdate()" v-model="isActive">
+      <label for="{{name}}" v-else="isActive">{{alt}}</label>
+    </span>
+  </div>
 </template>

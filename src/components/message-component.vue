@@ -8,16 +8,15 @@
       'error-message'
     ]
   }
-  
 </script>
 
-<style scoped>
+<style>
   
-
   p {
     font-style: italic;
     text-align: center;
   }
+  
   .message-group{
     background-color:#1ABD82;
     color:#fff;
@@ -27,10 +26,9 @@
     height:0px;
     transform: translateY(10px);
     transition: all .3s ease;
-
   }
 
-  .message-group.error{ background-color:#EA6564;}
+  .message-group.error{ background-color:#EA6564; }
 
   .message-group.showMessage{
     visibility: visible;

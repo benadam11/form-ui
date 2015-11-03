@@ -19,6 +19,7 @@
         accountActive: true,
         accountLocked: false,
         hasErrors:false,
+        showMessage:false,
         isSaved:false,
         firstName:'Drew', 
         lastName: 'Baird',
@@ -33,7 +34,7 @@
         this.securityRoles.splice(index, 1)
       },
       saveForm(){
-        this.isSaved = !this.isSaved;
+        this.isSaved = true;
       },
       updateStatus(updatedState){
         this.accountActive = updatedState;
@@ -42,13 +43,13 @@
         this.accountLocked = updatedState;
       },
       updateFirstName(updatedState){
-        console.log(updatedState)
+        this.firstName = updatedState;
       },
       updateLastName(updatedState){
-        console.log(updatedState)
+        this.lastName = updatedState;
       },
       updateEmail(updatedState){
-        console.log(updatedState)
+        this.emailAddress = updatedState;
       }
     },
     events:{
@@ -56,7 +57,7 @@
 
         let isAlreadySelected = _.some(this.securityRoles, newRole);
 
-        if(!isAlreadySelected) { 
+        if(!isAlreadySelected){ 
           this.securityRoles.push(newRole);
         }
 
@@ -68,11 +69,17 @@
         let emailError = this.$refs.email.$data.error;
 
 
-        if (!lastNameError && !lastNameError && !emailError){
-          console.log('this is working')
+        if (!firstNameError && !lastNameError && !emailError){
           this.saveForm()
+          this.hasErrors = false;
+          this.showMessage = true;
+          console.log('no errors here')
         }
-        else { this.hasErrors = !this.hasErrors; }
+        else{ 
+          this.hasErrors = true; 
+          this.showMessage = true;
+          console.log('errs fer dayzz')
+        }
 
       }
     }
@@ -89,17 +96,29 @@
   }
 
   li {
+    position: relative;
     margin-bottom:10px;
-    padding-bottom:10px;
+    padding-top:5px;
+    padding-bottom:20px;
     border-bottom:1px solid #F5F6F8;
   }
 
+  .locked label{ color:red;}
+
+  .link-right{
+    position: absolute;
+    right:0;
+  }
+
   .list-transition {
-    max-height:100px;
+    max-height:1000px;
     transition: max-height .1s ease;
   }
 
-  .list-enter, .list-leave { max-height: 0; }
+  .list-enter, 
+  .list-leave { 
+    max-height: 0px; 
+  }
 
   .inactive { color:#EA6564; }
 
@@ -113,16 +132,16 @@
     
     <message-component 
       v-bind:error="hasErrors"
-      :class="{'showMessage':showMessage, 'hasErrors':error}"
+      v-bind:class="{'showMessage':showMessage, 'hasErrors':error}"
       message="Booya! Settings are saved"
-      error-message="Woah there cowbow - fix them errors">
+      error-message="Woah there cowboy - fix them errors">
     </message-component>
 
     <div class="form-group">
 
       <checkbox 
         v-on:update="updateStatus"
-        :is-active="accountActive"
+        v-bind:is-active="accountActive"
         label="Active" 
         alt="Inactive" 
         name="account-active">
@@ -130,7 +149,7 @@
 
       <checkbox 
         v-on:update="updateLocked"
-        :is-active="accountLocked"
+        v-bind:is-active="accountLocked"
         label="Account Locked" 
         alt="Lock Account" 
         name="account-locked">
@@ -187,13 +206,12 @@
         </div>
 
         <ul>
-          <li class="cf" v-for="item in securityRoles" transition="list">
-            <span>{{ item.role }}</span>
+          <li class="relative" v-for="item in securityRoles" transition="list">
+            <span class="item-role">{{ item.role }}</span>
             <button 
               v-on:click="removeRole($index)"
-              disabled="{{accountLocked}}"
               type="button" 
-              class="button-link right">
+              class="button-link link-right">
               Remove
             </button>
           </li>
@@ -205,7 +223,6 @@
     <div class="form-group">
       <button-component 
         v-bind:saving="isSaving"
-        disabled="{{accountLocked}}" 
         type="submit" 
         text="Save" 
         saving-text="Saving">

@@ -8,16 +8,13 @@
     ],
     methods:{
       handleEnter(event){
-
         this.$dispatch('handleSubmit')
-
       }
     }
   }
 </script>
 
 <style lang="sass" scoped>
-
   
   .submit-button {
     display:inline-block;
@@ -36,6 +33,7 @@
       transform:scale(1.1);
       box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     }
+    
     &:disabled{ opacity: .2; }
   }
 

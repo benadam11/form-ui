@@ -26,9 +26,7 @@
 
       },
       toggleDropdown(){
-
         this.showDropdown = !this.showDropdown;
-
       }
     }
   }

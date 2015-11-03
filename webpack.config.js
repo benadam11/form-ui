@@ -1,3 +1,5 @@
+// Source: Vue Webpack Loader Example
+
 var webpack = require('webpack')
 
 module.exports = {
