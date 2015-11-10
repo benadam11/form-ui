@@ -1,0 +1,195 @@
+<style type="text/css">
+ /* Add your css styles here */
+*{box-sizing:border-box;}
+body { 
+    background-color:#F5F6F8;
+    position:relative;
+}
+
+h2,h3,p,input,label,li {
+  font-family:"Helvetica Neue", Helvetica, Arial, Sans-serif;
+  font-weight:200;
+} 
+
+h2 {
+    font-size:1.75em;
+    margin-bottom:30px;
+}
+
+h3 { 
+    font-size: 1.25em; 
+    margin:0; 
+    padding:0;
+}
+ul {
+    margin-bottom:30px;
+}
+
+li {
+    margin-bottom:10px;
+    padding-bottom:10px;
+    border-bottom:1px solid #F5F6F8;
+}
+
+
+input[type="text"], button {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  border:none;
+  appearance:none;
+}
+
+input[type="text"] {
+  font-size:1em;
+  padding:12px;
+  width:100%;
+  background-color:#F5F6F8;
+}
+
+
+label {
+    font-size:.75em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    margin-right:10px;
+}
+
+a {
+    font-size:.85em;
+    cursor:pointer;
+}
+
+button {
+  display:inline-block;
+  background-color:#1ABD82;
+  color:#fff;
+  font-size:12px;
+  padding:8px;
+  min-width:120px;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.button-link, a {
+    background-color:transparent;
+    color:#3887BE; 
+    display:inline-block;
+    text-transform:normal;
+    vertical-align:middle;
+}
+
+.left { 
+    float:left;
+}
+.right{
+   float:right;
+}
+
+.cf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.form-container {
+    background-color:#fff;
+    padding:70px;
+    width:600px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.form-group{
+    margin-bottom:30px;
+}
+
+.input-bg {
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+
+
+
+
+
+</style>
+ <!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>User Settings</title>
+</head>
+<body>
+    <div class="form-container">
+       <form>
+
+          <h2>Basic Settings</h2>
+
+          <div class="form-group">
+            
+            <input type="checkbox">
+            <label>Active</label>
+              
+            <input type="checkbox">
+            <label>Account Locked</label>
+              
+          </div>
+
+          <div class="form-group">
+              
+              <label>First Name:</label>
+              <div class="input-bg"><input type="text" value="Drew"></div>
+
+              <label>Last Name:</label>
+              <div class="input-bg"><input type="text" value="Baird"></div>
+
+              <label>Email:</label>
+              <div class="input-bg"><input type="text" value="drewbiedoobiedrew@acme.com"></div>
+                  
+          </div>
+                  
+          <div class="form-group">
+              <div class="cf">
+                <h3 class="left">Current Roles</h3>
+                <button class="button-link right add-btn">+ Add Security Role</button>
+              </div>
+              
+              <ul class="js-target">
+                  <li class="cf">Developer <a class="right js-remove">Remove</a></li>
+                  <li class="cf">Administrator <a class="right js-remove">Remove</a></li>
+              </ul>
+              
+          </div>
+           
+          <div class="form-group">
+            <button>Save</button>
+            <button class="button-link">Cancel</button>
+          </div>
+
+       </form>
+    </div>
+   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</body>
+</html>
+
+ <script type="text/javascript">
+ // Add your javascript here
+$('.add-btn').on('click', function(e){
+    //Quickly mocking up the interaction, not how I would implement it if I had more time
+    e.preventDefault();
+    $('.js-target').append('<li class="cf"><input type="text" placeholder="Type in role"> <a class="right js-remove">Remove</a></li>')
+});
+
+$('.js-remove').on('click', function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+});
+ </script>

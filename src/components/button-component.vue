@@ -33,7 +33,7 @@
       transform:scale(1.1);
       box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     }
-    
+
     &:disabled{ opacity: .2; }
   }
 
@@ -41,7 +41,7 @@
 
 
 <template>
-  <button type="button" class="submit-button" v-on:click="handleEnter($event)">
+  <button type="{{type}}" class="submit-button" v-on:click="handleEnter($event)">
     <span>{{text}}</span>
   </button>
 </template>

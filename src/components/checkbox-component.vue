@@ -10,10 +10,7 @@
       sendUpdate(){
 
         this.isActive = !this.isActive;
-
-        let updatedState = this.isActive;
-
-        this.$dispatch('update', updatedState)
+        this.$dispatch('update', this.active)
         
       }
     }

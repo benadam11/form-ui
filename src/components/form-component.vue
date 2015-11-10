@@ -103,7 +103,7 @@
     border-bottom:1px solid #F5F6F8;
   }
 
-  .locked label{ color:red;}
+  .locked label { color:red; }
 
   .link-right{
     position: absolute;
@@ -193,16 +193,11 @@
 
     <div class="form-group">
       
-      <div 
-        v-if="accountLocked" 
-        v-bind:class="{'disabled':accountLocked}">
-        <h3>Security Roles - Locked</h3>
-      </div>
 
-      <div v-else="accountLocked" class="cf list-container">
-        <div class="form-group">
+      <div class="cf list-container">
+        <div class="form-group cf">
           <dropdown class="right"></dropdown>
-          <h3>Security Roles</h3>
+          <h3 class="hide-small">Security Roles</h3>
         </div>
 
         <ul>
@@ -223,7 +218,7 @@
     <div class="form-group">
       <button-component 
         v-bind:saving="isSaving"
-        type="submit" 
+        type="button" 
         text="Save" 
         saving-text="Saving">
       </button-component>

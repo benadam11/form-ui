@@ -1,5 +1,5 @@
 <script>
-import FormComponent from './components/form.vue'
+import FormComponent from './components/form-component.vue'
 
 export default {
   components: { FormComponent }
@@ -8,13 +8,21 @@ export default {
 
 <style src="./styles/style.scss" lang="sass"></style>
 
-<style>
+<style lang="sass">
   .form-container {
     background-color:#fff;
     margin:70px auto;
     padding:30px 70px;
     width:600px;
+    transition:all .1s ease;
+
+    @media screen and(max-width: 480px){
+      width:100%;
+      padding:30px 30px;
+      margin-top:0;
+    }
   }
+
 </style>
 
 <template>

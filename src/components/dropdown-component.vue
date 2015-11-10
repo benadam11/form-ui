@@ -1,4 +1,5 @@
 <script>
+
   export default {
     data() {
       return {
@@ -21,7 +22,7 @@
 
         if(newRole){
           this.$dispatch('addRole', newRole)
-          this.showDropdown = !this.showDropdown;
+          this.toggleDropdown();
         }
 
       },
@@ -38,8 +39,6 @@
     background-color:transparent;
     color:#3887BE; 
     display:inline-block;
-    text-transform:normal;
-    vertical-align:middle;
   }  
 
   .dropdown{ position:relative; }

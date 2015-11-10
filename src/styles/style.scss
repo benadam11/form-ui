@@ -4,7 +4,6 @@
 
 body { 
   background-color:#F5F6F8;
-  position:relative;
   font-family:"Helvetica Neue", Helvetica, Arial, Sans-serif;
 }
 
@@ -26,6 +25,7 @@ h2 {
 h3 { 
   font-size: 1.25em; 
   margin:0; 
+  margin-bottom:1em;
   padding:0;
 }
 
@@ -59,9 +59,29 @@ a {
 
 .form-group { margin-bottom:30px; }
 
-.left { float:left; }
+.left { 
+  float:left; 
 
-.right{ float:right; }
+  @media screen and(max-width: 480px){
+    float:none;
+  }
+
+}
+.hide-small{
+  @media screen and(max-width: 480px){
+    display:none;
+  }
+}
+
+.right { 
+
+  float:right; 
+
+  @media screen and(max-width: 480px){
+    float:none;
+  }
+
+}
 
 .disabled { opacity: .2;}
 

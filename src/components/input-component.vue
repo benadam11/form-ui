@@ -49,7 +49,13 @@
     &:focus {
       outline:0;
       box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+
+      @media screen and (max-width:480px){
+        box-shadow: none;
+      }
     }
+
+
 
   }
 
@@ -84,6 +90,18 @@
       transform:rotate(45deg);
       z-index:-1;
     }
+
+    @media screen and(max-width:480px){
+      position:relative;
+      width:100%;
+      top:-20px;
+      left:0;
+      box-shadow: none;
+
+      &:after {
+        display: none;
+      }
+    }
   }
 
   .error-transition{
@@ -91,6 +109,10 @@
     visibility: visible;
     transform:translateX(10px);
     transition:all .3s ease;
+
+    @media screen and(max-width:480px){
+      transform:translateX(0px);
+    }
 
   }
 
